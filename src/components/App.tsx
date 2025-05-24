@@ -7,6 +7,7 @@ import { NETWORK_ONLY } from "../constants/app.constants.ts";
 
 const App: React.FC<AppProps> = ({ applicationName }) => {
   const [person, setPerson] = useState<Person>({
+    id: "",
     firstName: "",
     middleName: null,
     lastName: "",
@@ -45,38 +46,30 @@ const App: React.FC<AppProps> = ({ applicationName }) => {
 
       <h2>Parents</h2>
       {person.parents.map((person: Person) => (
-        <>
-          <p>
-            Full name: {person.lastName}, {person.firstName} {person.middleName}
-          </p>
-        </>
+        <p key={person.id} id={person.id}>
+          Full name: {person.lastName}, {person.firstName} {person.middleName}
+        </p>
       ))}
 
       <h2>Siblings</h2>
       {person.siblings.map((person: Person) => (
-        <>
-          <p>
-            Full name: {person.lastName}, {person.firstName} {person.middleName}
-          </p>
-        </>
+        <p key={person.id} id={person.id}>
+          Full name: {person.lastName}, {person.firstName} {person.middleName}
+        </p>
       ))}
 
       <h2>Spouses</h2>
       {person.spouses.map((person: Person) => (
-        <>
-          <p>
-            Full name: {person.lastName}, {person.firstName} {person.middleName}
-          </p>
-        </>
+        <p key={person.id} id={person.id}>
+          Full name: {person.lastName}, {person.firstName} {person.middleName}
+        </p>
       ))}
 
       <h2>Children</h2>
       {person.children.map((person: Person) => (
-        <>
-          <p>
-            Full name: {person.lastName}, {person.firstName} {person.middleName}
-          </p>
-        </>
+        <p key={person.id} id={person.id}>
+          Full name: {person.lastName}, {person.firstName} {person.middleName}
+        </p>
       ))}
     </>
   );

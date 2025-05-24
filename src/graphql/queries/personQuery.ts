@@ -4,6 +4,7 @@ import { gql } from "@apollo/client";
 const PERSON_QUERY: DocumentNode = gql`
   query GetPerson($id: ID!) {
     person(id: $id) {
+      id
       firstName
       middleName
       lastName
@@ -11,18 +12,22 @@ const PERSON_QUERY: DocumentNode = gql`
       dateOfBirth
       photoFileName
       parents {
+        id
         firstName
         lastName
       }
       children {
+        id
         firstName
         lastName
       }
       siblings {
+        id
         firstName
         lastName
       }
       spouses {
+        id
         firstName
         lastName
       }
