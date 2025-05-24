@@ -31,6 +31,14 @@ Run project locally
 npm install
 ```
 
+### Create a `.env` file
+
+Before you start, make sure you create a file called `.env` and define environment variables with the following keys:
+
+- `VITE_GRAPHQL_ENDPOINT`
+
+Set the proper URLs where you are actually running the GraphQL server application locally to this variable.
+
 ### Starting application with Node Package Manager:
 
 ```bash
