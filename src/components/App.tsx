@@ -33,11 +33,51 @@ const App: React.FC<AppProps> = ({ applicationName }) => {
   return (
     <section>
       <h1>{applicationName}</h1>
-      <p>{person.firstName}</p>
-      <p>{person.middleName}</p>
-      <p>{person.lastName}</p>
-      <p>{person.placeOfBirth}</p>
-      <p>{person.photoFileName}</p>
+
+      <h2>Person</h2>
+      <p>
+        Full name: {person.lastName}, {person.firstName} {person.middleName}
+      </p>
+      <p>
+        Place of birth and date: {person.placeOfBirth},{" "}
+        {person.dateOfBirth?.toString()}
+      </p>
+
+      <h2>Parents</h2>
+      {person.parents.map((person: Person) => (
+        <>
+          <p>
+            Full name: {person.lastName}, {person.firstName} {person.middleName}
+          </p>
+        </>
+      ))}
+
+      <h2>Siblings</h2>
+      {person.siblings.map((person: Person) => (
+        <>
+          <p>
+            Full name: {person.lastName}, {person.firstName} {person.middleName}
+          </p>
+        </>
+      ))}
+
+      <h2>Spouses</h2>
+      {person.spouses.map((person: Person) => (
+        <>
+          <p>
+            Full name: {person.lastName}, {person.firstName} {person.middleName}
+          </p>
+        </>
+      ))}
+
+      <h2>Children</h2>
+      {person.children.map((person: Person) => (
+        <>
+          <p>
+            Full name: {person.lastName}, {person.firstName} {person.middleName}
+          </p>
+        </>
+      ))}
     </section>
   );
 };
