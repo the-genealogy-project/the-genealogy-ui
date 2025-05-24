@@ -13,6 +13,8 @@ the-genealogy-ui
   />
 </p>
 
+[![Continuous integration](https://github.com/the-genealogy-project/the-genealogy-ui/actions/workflows/build.yaml/badge.svg)](https://github.com/the-genealogy-project/the-genealogy-ui/actions/workflows/build.yaml)
+
 Prerequisites
 -------------
 
