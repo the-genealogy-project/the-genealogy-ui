@@ -5,7 +5,7 @@ the-genealogy-ui
 
 <p>
   <img
-    src="src/assets/logo.png"
+    src="images/logo.png"
     alt="The Genealogy Project logo"
     title="The Genealogy Project logo"
     width="200"
