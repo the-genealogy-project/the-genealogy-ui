@@ -31,7 +31,7 @@ const App: React.FC<AppProps> = ({ applicationName }) => {
   }, [loading, error, data]);
 
   return (
-    <section>
+    <>
       <h1>{applicationName}</h1>
 
       <h2>Person</h2>
@@ -78,7 +78,7 @@ const App: React.FC<AppProps> = ({ applicationName }) => {
           </p>
         </>
       ))}
-    </section>
+    </>
   );
 };
 
