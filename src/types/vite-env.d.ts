@@ -12,6 +12,15 @@ interface AppProps {
   applicationName: string;
 }
 
+interface HeaderProps {
+  logo: string;
+  applicationName: string;
+}
+
+interface FooterProps {
+  applicationName: string;
+}
+
 // Custom data model types
 
 interface Person {
