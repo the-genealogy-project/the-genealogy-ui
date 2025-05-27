@@ -6,6 +6,8 @@ import App from "./components/App";
 
 import { APPLICATION_NAME } from "./constants/app.constants";
 
+import "./main.css";
+
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ApolloProvider

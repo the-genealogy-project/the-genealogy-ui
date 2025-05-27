@@ -1,3 +1,11 @@
+// Stylesheets
+
+declare module "*.css";
+
+// Image types
+
+declare module "*.png";
+
 // Custom FC Props types
 
 interface AppProps {
