@@ -6,21 +6,6 @@ declare module "*.css";
 
 declare module "*.png";
 
-// Custom FC Props types
-
-interface AppProps {
-  applicationName: string;
-}
-
-interface HeaderProps {
-  logo: string;
-  applicationName: string;
-}
-
-interface FooterProps {
-  applicationName: string;
-}
-
 // Custom data model types
 
 interface Person {

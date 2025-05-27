@@ -1,11 +1,11 @@
-import React from "react";
+import { APPLICATION_NAME } from "../../constants/app.constants.ts";
 
-const Footer: React.FC<FooterProps> = ({ applicationName }) => {
+const Footer = () => {
   return (
     <footer className="text-center py-3 mt-auto">
       <div className="container">
         <span className="text-muted">
-          {applicationName} &copy; {new Date().getFullYear()}
+          {APPLICATION_NAME} &copy; {new Date().getFullYear()}
         </span>
       </div>
     </footer>
