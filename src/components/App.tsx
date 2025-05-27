@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useQuery } from "@apollo/client";
+import { useLazyQuery } from "@apollo/client";
 
 import PERSON_QUERY from "../graphql/queries/personQuery";
 
@@ -24,16 +24,15 @@ const App: React.FC<AppProps> = ({ applicationName }) => {
     spouses: [],
   });
 
-  const { loading, error, data } = useQuery(PERSON_QUERY, {
-    variables: { id: personId },
+  const [loadPerson, { loading, error, data }] = useLazyQuery(PERSON_QUERY, {
     fetchPolicy: NETWORK_ONLY,
   });
 
   useEffect((): void => {
-    if (!loading && !error) {
+    if (data && data.person) {
       setPerson(data.person);
     }
-  }, [loading, error, data]);
+  }, [data]);
 
   return (
     <main className="container">
@@ -59,9 +58,15 @@ const App: React.FC<AppProps> = ({ applicationName }) => {
             value={personId}
             onChange={(event) => setPersonId(event.target.value)}
           />
-          <button className="btn btn-primary mt-3">Find</button>
+          <button
+            className="btn btn-primary mt-3"
+            onClick={() => loadPerson({ variables: { id: personId } })}
+            disabled={loading}
+          >
+            {loading ? "Loading..." : "Find"}
+          </button>
+          {error && <p className="text-danger">Error: {error.message}</p>}
         </article>
-        <article className="col-6"></article>
       </section>
       <section className="row">
         <article className="col-12">
