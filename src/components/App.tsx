@@ -1,7 +1,7 @@
-import Header from "./custom/Header.tsx";
-import Search from "./custom/Search.tsx";
-import Graph from "./custom/Graph.tsx";
-import Footer from "./custom/Footer.tsx";
+import Header from "./Header.tsx";
+import Search from "./Search.tsx";
+import Graph from "./Graph.tsx";
+import Footer from "./Footer.tsx";
 
 const App = () => {
   return (

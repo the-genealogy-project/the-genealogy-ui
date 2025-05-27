@@ -1,4 +1,4 @@
-import { APPLICATION_NAME } from "../../constants/app.constants.ts";
+import { APPLICATION_NAME } from "../constants/app.constants.ts";
 
 const Footer = () => {
   return (

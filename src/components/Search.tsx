@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useLazyQuery } from "@apollo/client";
 
-import PERSON_QUERY from "../../graphql/queries/personQuery.ts";
+import PERSON_QUERY from "../graphql/queries/personQuery.ts";
 
-import { NETWORK_ONLY } from "../../constants/app.constants.ts";
+import { NETWORK_ONLY } from "../constants/app.constants.ts";
 
 const Search = () => {
   const [personId, setPersonId] = useState<string>("");

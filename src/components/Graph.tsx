@@ -1,5 +1,5 @@
 const Graph = () => {
-  return <h1>Graph</h1>;
+  return <p>Graph</p>;
 };
 
 export default Graph;

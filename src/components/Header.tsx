@@ -1,6 +1,6 @@
-import { APPLICATION_NAME } from "../../constants/app.constants.ts";
+import { APPLICATION_NAME } from "../constants/app.constants.ts";
 
-import logo from "../../assets/logo.png";
+import logo from "../assets/logo.png";
 
 const Header = () => {
   return (
