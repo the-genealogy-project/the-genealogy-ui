@@ -28,7 +28,7 @@ const App: React.FC<AppProps> = ({ applicationName }) => {
     fetchPolicy: NETWORK_ONLY,
   });
 
-  useEffect((): void => {
+  useEffect(() => {
     if (data && data.person) {
       setPerson(data.person);
     }
@@ -58,6 +58,11 @@ const App: React.FC<AppProps> = ({ applicationName }) => {
             value={personId}
             onChange={(event) => setPersonId(event.target.value)}
           />
+          {error && (
+            <p className="text-danger mt-3">
+              No person found with the given ID.
+            </p>
+          )}
           <button
             className="btn btn-primary mt-3"
             onClick={() => loadPerson({ variables: { id: personId } })}
@@ -65,7 +70,6 @@ const App: React.FC<AppProps> = ({ applicationName }) => {
           >
             {loading ? "Loading..." : "Find"}
           </button>
-          {error && <p className="text-danger">Error: {error.message}</p>}
         </article>
       </section>
       <section className="row">
