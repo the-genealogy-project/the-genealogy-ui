@@ -4,7 +4,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
 import App from "./components/App";
 
-import { APPLICATION_NAME } from "./constants/app.constants";
+import "./main.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -16,7 +16,7 @@ createRoot(document.getElementById("root")!).render(
         })
       }
     >
-      <App applicationName={APPLICATION_NAME} />
+      <App />
     </ApolloProvider>
   </StrictMode>,
 );

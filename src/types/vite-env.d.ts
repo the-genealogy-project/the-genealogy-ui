@@ -1,12 +1,15 @@
-// Custom FC Props types
+// Stylesheets
 
-interface AppProps {
-  applicationName: string;
-}
+declare module "*.css";
+
+// Image types
+
+declare module "*.png";
 
 // Custom data model types
 
 interface Person {
+  id: string;
   firstName: string;
   middleName?: string | null;
   lastName: string;

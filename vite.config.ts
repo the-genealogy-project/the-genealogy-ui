@@ -8,6 +8,7 @@ export default defineConfig(({ mode }) => {
   return {
     server: { port: 3000, strictPort: true },
     define: {
+      global: {},
       "process.env.VITE_GRAPHQL_ENDPOINT": JSON.stringify(
         env.VITE_GRAPHQL_ENDPOINT,
       ),

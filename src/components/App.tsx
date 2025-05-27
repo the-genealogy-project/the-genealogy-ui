@@ -1,12 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { useQuery } from "@apollo/client";
+import { useEffect, useState } from "react";
+import { useLazyQuery } from "@apollo/client";
 
-import PERSON_QUERY from "../graphql/queries/personQuery";
+import Header from "./Header";
+import Footer from "./Footer";
+
+import PERSON_QUERY from "../graphql/queries/personQuery.ts";
 
 import { NETWORK_ONLY } from "../constants/app.constants.ts";
 
-const App: React.FC<AppProps> = ({ applicationName }) => {
+const App = () => {
+  const [personId, setPersonId] = useState<string>("");
+
   const [person, setPerson] = useState<Person>({
+    id: "",
     firstName: "",
     middleName: null,
     lastName: "",
@@ -19,66 +25,51 @@ const App: React.FC<AppProps> = ({ applicationName }) => {
     spouses: [],
   });
 
-  const { loading, error, data } = useQuery(PERSON_QUERY, {
-    variables: { id: "dd1f88d2-3863-11f0-a399-0a0027000005" },
+  const [loadPerson, { loading, error, data }] = useLazyQuery(PERSON_QUERY, {
     fetchPolicy: NETWORK_ONLY,
   });
 
   useEffect(() => {
-    if (!loading && !error) {
+    if (data && data.person) {
       setPerson(data.person);
     }
-  }, [loading, error, data]);
+  }, [data, person]);
 
   return (
-    <section>
-      <h1>{applicationName}</h1>
-
-      <h2>Person</h2>
-      <p>
-        Full name: {person.lastName}, {person.firstName} {person.middleName}
-      </p>
-      <p>
-        Place of birth and date: {person.placeOfBirth},{" "}
-        {person.dateOfBirth?.toString()}
-      </p>
-
-      <h2>Parents</h2>
-      {person.parents.map((person: Person) => (
-        <>
-          <p>
-            Full name: {person.lastName}, {person.firstName} {person.middleName}
-          </p>
-        </>
-      ))}
-
-      <h2>Siblings</h2>
-      {person.siblings.map((person: Person) => (
-        <>
-          <p>
-            Full name: {person.lastName}, {person.firstName} {person.middleName}
-          </p>
-        </>
-      ))}
-
-      <h2>Spouses</h2>
-      {person.spouses.map((person: Person) => (
-        <>
-          <p>
-            Full name: {person.lastName}, {person.firstName} {person.middleName}
-          </p>
-        </>
-      ))}
-
-      <h2>Children</h2>
-      {person.children.map((person: Person) => (
-        <>
-          <p>
-            Full name: {person.lastName}, {person.firstName} {person.middleName}
-          </p>
-        </>
-      ))}
-    </section>
+    <main className="container">
+      <Header />
+      <section className="row">
+        <article className="col-6">
+          <p>Enter person ID:</p>
+          <input
+            id="personId"
+            className="form-control personId"
+            type="text"
+            value={personId}
+            placeholder="00000000-0000-0000-0000-000000000000"
+            onChange={(event) => setPersonId(event.target.value)}
+          />
+          {error && (
+            <p className="text-danger mt-3">
+              No person found with the given ID.
+            </p>
+          )}
+          <button
+            className="btn btn-primary mt-3"
+            onClick={() => loadPerson({ variables: { id: personId } })}
+            disabled={loading}
+          >
+            {loading ? "Loading..." : "Find"}
+          </button>
+        </article>
+      </section>
+      <section className="row">
+        <article className="col-12">
+          <p>Graph</p>
+        </article>
+      </section>
+      <Footer />
+    </main>
   );
 };
 
