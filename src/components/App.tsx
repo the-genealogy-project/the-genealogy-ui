@@ -32,7 +32,7 @@ const App: React.FC<AppProps> = ({ applicationName }) => {
     if (data && data.person) {
       setPerson(data.person);
     }
-  }, [data]);
+  }, [data, person]);
 
   return (
     <main className="container">
